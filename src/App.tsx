@@ -1,26 +1,30 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { ReactNode } from "react";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import FeedContainer from "./components/Feed/FeedContainer";
+import MessagesContainer from "./components/Messages/MessagesContainer";
+import ProfileContainer from "./components/Profile/ProfileContainer";
+import Sidebar from "./components/sidebar";
+import UsersContainer from "./components/Users/UsersContainer";
 
-function App() {
+const App = () => {
+  type routesType = { path: string; component: ReactNode }[];
+
+  const routes: routesType = [
+    { path: "/feed", component: <FeedContainer /> },
+    { path: "/profile", component: <ProfileContainer /> },
+    { path: "/messages", component: <MessagesContainer /> },
+    { path: "/users", component: <UsersContainer /> },
+  ];
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BrowserRouter>
+      <Routes>
+        {routes.map(({ path, component }) => (
+          <Route path={path} element={component} key={path} />
+        ))}
+      </Routes>
+      <Sidebar />
+    </BrowserRouter>
   );
-}
-
+};
 export default App;
