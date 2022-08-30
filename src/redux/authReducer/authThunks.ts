@@ -1,4 +1,12 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
-import { feedAPI } from "../../API/feedAPI/feedAPI";
+import { authAPI } from "../../API/authAPI/authAPI";
 
-export const postsThunks = {};
+export const authThunks = {
+  login: createAsyncThunk(
+    "auth/login",
+    async (data: { email: string; password: string; rememberMe: boolean }) => {
+      const { email, password, rememberMe } = data;
+      return authAPI.login(email, password, rememberMe);
+    }
+  ),
+};

@@ -68,11 +68,3 @@ const postsReducer = createSlice({
 
 export default postsReducer.reducer;
 export const { setPosts, setStart } = postsReducer.actions;
-
-// {
-// ...item,
-// name: faker.name.fullName(),
-// img: faker.image.avatar(),
-// liked: false,
-// likes: getRandomInt(100),
-// }

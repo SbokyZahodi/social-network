@@ -1,17 +1,27 @@
 import { createSlice } from "@reduxjs/toolkit";
+import { authThunks } from "./authThunks";
 
-interface initialStateType {}
+interface initialStateType {
+  isAuth: boolean;
+}
 
-const initialState: initialStateType = {};
+const initialState: initialStateType = {
+  isAuth: false,
+};
 
 const authReducer = createSlice({
   name: "auth",
   initialState,
 
   reducers: {
-    auth(state) {},
+    login(state) {},
+  },
+  extraReducers(builder) {
+    builder.addCase(authThunks.login.fulfilled, (state, action) => {
+      console.log(action.payload);
+    });
   },
 });
 
 export default authReducer.reducer;
-export const {} = authReducer.actions;
+export const { login } = authReducer.actions;
