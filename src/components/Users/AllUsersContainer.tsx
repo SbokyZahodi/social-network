@@ -45,6 +45,7 @@ const AllUsersContainer: FC = () => {
         next={loadMoreUsers}
         hasMore={users.length >= totalCount ? false : true}
         loader={<Preloader />}
+        className={`flex flex-col items-center`}
       >
         {usersArray}
       </InfiniteScroll>

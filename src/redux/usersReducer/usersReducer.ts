@@ -12,6 +12,22 @@ interface initialStateType {
   totalCount: number;
   error: string | null;
   page: number;
+  profilePreview: {
+    userId: string;
+    lookingForAJob: boolean;
+    lookingForAJobDescription: string;
+    fullName: string;
+    contacts: {
+      github: string;
+      vk: string;
+      facebook: string;
+      instagram: string;
+      twitter: string;
+      website: string;
+      youtube: string;
+      mainLink: string;
+    };
+  } | null;
 }
 
 const initialState: initialStateType = {
@@ -19,6 +35,7 @@ const initialState: initialStateType = {
   totalCount: 0,
   error: null,
   page: 1,
+  profilePreview: null,
 };
 
 const usersReducer = createSlice({

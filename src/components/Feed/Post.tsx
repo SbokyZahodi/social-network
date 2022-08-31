@@ -5,7 +5,7 @@ import { post } from "../../redux/postsReducer/models";
 const Post: FC<post> = ({ id, liked, likes, name, body, img }) => {
   return (
     <div
-      className={`p-3 m-3 rounded-md`}
+      className={`p-3 m-3 rounded-md lg:w-1/3`}
       style={{ background: "rgba(217, 217, 217, 0.13)" }}
     >
       <div className={`flex items-center`}>

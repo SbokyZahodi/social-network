@@ -9,7 +9,7 @@ const SvgLink: FC<{ path: string; route: string }> = ({ path, route }) => {
     >
       <svg
         xmlns="http://www.w3.org/2000/svg"
-        className="h-8 w-8"
+        className="h-8 w-8 my-5  lg:w-9 transition"
         fill="none"
         viewBox="0 0 24 24"
         stroke="currentColor"
@@ -24,7 +24,7 @@ const SvgLink: FC<{ path: string; route: string }> = ({ path, route }) => {
 export const Sidebar = () => {
   return (
     <div
-      className={`fixed bottom-0 w-full h-[8%] flex items-center justify-around bg-[#4B4A54]`}
+      className={`fixed w-full lg:w-[5%] bottom-0 h-[8%] lg:h-screen flex items-center lg:flex-col justify-around lg:justify-start   bg-[#4B4A54]`}
     >
       <SvgLink
         path="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4-3H9M7 16h6M7 8h6v4H7V8z"

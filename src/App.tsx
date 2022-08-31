@@ -23,19 +23,23 @@ const App = () => {
     { path: "/login", component: <LoginContainer /> },
   ];
 
-  if (!isAuth) {
-    return <LoginContainer />;
-  }
+  // if (!isAuth) {
+  //   return <LoginContainer />;
+  // }
 
   return (
-    <>
-      <Routes>
-        {routes.map(({ path, component }) => (
-          <Route path={path} element={component} key={path} />
-        ))}
-      </Routes>
-      <Sidebar />
-    </>
+    <div className={`lg:flex`}>
+      <div className={`lg:w-[5%]`}>
+        <Sidebar />
+      </div>
+      <div className={`lg:w-[95%]`}>
+        <Routes>
+          {routes.map(({ path, component }) => (
+            <Route path={path} element={component} key={path} />
+          ))}
+        </Routes>
+      </div>
+    </div>
   );
 };
 export default App;

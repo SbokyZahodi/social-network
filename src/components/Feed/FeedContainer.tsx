@@ -38,12 +38,13 @@ const FeedContainer = () => {
   }
 
   return (
-    <div className={`mb-20`}>
+    <div className={``}>
       <InfiniteScroll
         dataLength={users.length}
         next={loadMorePostsFunc}
         hasMore={users.length === 100 ? false : true}
         loader={<Preloader />}
+        className={`flex flex-col items-center`}
       >
         {posts}
       </InfiniteScroll>
