@@ -5,7 +5,7 @@ import LoginContainer from "./components/Login/LoginContainer";
 import MessagesContainer from "./components/Messages/MessagesContainer";
 import ProfileContainer from "./components/Profile/ProfileContainer";
 import Sidebar from "./components/sidebar";
-import UsersContainer from "./components/Users/UsersContainer";
+import UsersContainer from "./components/Users/UsersContainer/UsersContainer";
 import { useAppSelector } from "./redux/hooks";
 
 const App = () => {
