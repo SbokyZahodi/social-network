@@ -1,11 +1,12 @@
 import { ReactNode } from "react";
 import { Route, Routes } from "react-router-dom";
-import FeedContainer from "./components/Feed/FeedContainer";
-import LoginContainer from "./components/Login/LoginContainer";
-import MessagesContainer from "./components/Messages/MessagesContainer";
-import ProfileContainer from "./components/Profile/ProfileContainer";
+import FeedContainer from "./components/FeedPage/FeedContainer";
+import LoginContainer from "./components/LoginPage/LoginContainer";
+import MessagesContainer from "./components/MessagesPage/MessagesContainer";
+import ProfileContainer from "./components/ProfilePage/ProfileContainer";
+
 import Sidebar from "./components/sidebar";
-import UsersContainer from "./components/Users/UsersContainer/UsersContainer";
+import UsersContainer from "./components/UsersPage/UsersContainer/UsersContainer";
 import { useAppSelector } from "./redux/hooks";
 
 const App = () => {

@@ -2,7 +2,7 @@ import { FC, useEffect } from "react";
 import InfiniteScroll from "react-infinite-scroll-component";
 import { useAppDispatch, useAppSelector } from "../../redux/hooks";
 import { usersThunks } from "../../redux/usersReducer/usersThunks";
-import Preloader from "../Feed/Preloader";
+import Preloader from "../FeedPage/Preloader";
 import User from "./User";
 
 const AllUsersContainer: FC = () => {
