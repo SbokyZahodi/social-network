@@ -6,7 +6,7 @@ export type login = {
   };
 };
 
-export type logout = {
+export type authMe = {
   resultCode: number;
   messages: string[];
   data: {

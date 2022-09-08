@@ -1,6 +1,7 @@
 import { configureStore } from "@reduxjs/toolkit";
 import authReducer from "./authReducer/authReducer";
 import postsReducer from "./postsReducer/postsReducer";
+import profileReducer from "./profileReducer/profileReducer";
 import usersReducer from "./usersReducer/usersReducer";
 
 export const store = configureStore({
@@ -8,6 +9,7 @@ export const store = configureStore({
     posts: postsReducer,
     users: usersReducer,
     auth: authReducer,
+    profile: profileReducer,
   },
 });
 

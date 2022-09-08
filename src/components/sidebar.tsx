@@ -1,5 +1,6 @@
 import { FC } from "react";
 import { NavLink } from "react-router-dom";
+import { useAppSelector } from "../redux/hooks";
 
 const SvgLink: FC<{ path: string; route: string }> = ({ path, route }) => {
   return (
@@ -22,9 +23,11 @@ const SvgLink: FC<{ path: string; route: string }> = ({ path, route }) => {
 };
 
 export const Sidebar = () => {
+  let myID = useAppSelector((state) => state.auth.myID);
+
   return (
     <div
-      className={`fixed w-full lg:w-[5%] bottom-0 h-[8%] lg:h-screen flex items-center lg:flex-col justify-around lg:justify-start   bg-[#4B4A54]`}
+      className={`fixed w-full lg:w-[5%] bottom-0 h-[8%] lg:h-screen flex items-center lg:flex-col justify-around lg:justify-start bg-[#4B4A54]`}
     >
       <SvgLink
         path="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4-3H9M7 16h6M7 8h6v4H7V8z"
@@ -32,7 +35,7 @@ export const Sidebar = () => {
       />
       <SvgLink
         path="M5.121 17.804A13.937 13.937 0 0112 16c2.5 0 4.847.655 6.879 1.804M15 10a3 3 0 11-6 0 3 3 0 016 0zm6 2a9 9 0 11-18 0 9 9 0 0118 0z"
-        route="/profile"
+        route={`profile/` + myID}
       />
       <SvgLink
         path="M17 8h2a2 2 0 012 2v6a2 2 0 01-2 2h-2v4l-4-4H9a1.994 1.994 0 01-1.414-.586m0 0L11 14h4a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2v4l.586-.586z"

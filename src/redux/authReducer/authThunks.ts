@@ -9,4 +9,7 @@ export const authThunks = {
       return authAPI.login(email, password, rememberMe);
     }
   ),
+  authMe: createAsyncThunk("auth/authMe", async () => {
+    return authAPI.authMe();
+  }),
 };

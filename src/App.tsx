@@ -1,4 +1,4 @@
-import { ReactNode } from "react";
+import { ReactNode, useEffect } from "react";
 import { Route, Routes } from "react-router-dom";
 import FeedContainer from "./components/FeedPage/FeedContainer";
 import LoginContainer from "./components/LoginPage/LoginContainer";
@@ -7,7 +7,8 @@ import ProfileContainer from "./components/ProfilePage/ProfileContainer";
 
 import Sidebar from "./components/sidebar";
 import UsersContainer from "./components/UsersPage/UsersContainer/UsersContainer";
-import { useAppSelector } from "./redux/hooks";
+import { authThunks } from "./redux/authReducer/authThunks";
+import { useAppDispatch, useAppSelector } from "./redux/hooks";
 
 const App = () => {
   type routesType = {
@@ -15,18 +16,26 @@ const App = () => {
     component: ReactNode;
   }[];
   let isAuth = useAppSelector((state) => state.auth.isAuth);
-
+  let dispatch = useAppDispatch();
   const routes: routesType = [
-    { path: "/profile", component: <ProfileContainer /> },
+    { path: "/profile/:id", component: <ProfileContainer /> },
     { path: "/feed", component: <FeedContainer /> },
     { path: "/messages", component: <MessagesContainer /> },
     { path: "/users", component: <UsersContainer /> },
     { path: "/login", component: <LoginContainer /> },
   ];
 
-  // if (!isAuth) {
-  //   return <LoginContainer />;
-  // }
+  useEffect(() => {
+    dispatch(authThunks.authMe());
+  }, []);
+
+  if (isAuth === null) {
+    return null;
+  }
+
+  if (!isAuth) {
+    return <LoginContainer />;
+  }
 
   return (
     <div className={`lg:flex`}>

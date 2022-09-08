@@ -1,7 +1,6 @@
 import { FC } from "react";
 import { Navigate, NavLink } from "react-router-dom";
-import defaultUserPhoto from "./assets/defaultUserPhoto.png";
-
+import defaultUserPhoto from '../../assets/defaultUserPhoto.png'
 type user = {
   id: number;
   name: string;

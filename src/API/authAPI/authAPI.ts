@@ -1,5 +1,5 @@
 import axios from "axios";
-import { login, logout } from "./models";
+import { login, authMe } from "./models";
 
 const instanse = axios.create({
   withCredentials: true,
@@ -24,6 +24,6 @@ export const authAPI = {
   },
 
   async authMe() {
-    return (await instanse.get<logout>("me")).data;
+    return (await instanse.get<authMe>("me")).data;
   },
 };

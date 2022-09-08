@@ -1,5 +1,6 @@
 export type profile = {
   userId: number | null;
+  aboutMe: string;
   lookingForAJob: boolean | null;
   lookingForAJobDescription: string | null;
   fullName: string | null;
@@ -13,5 +14,8 @@ export type profile = {
     youtube: string | null;
     mainLink: string | null;
   };
-  photo: string | null;
+  photos: {
+    small: string | undefined;
+    large: string | undefined;
+  };
 };

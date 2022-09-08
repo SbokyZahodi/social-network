@@ -1,8 +1,14 @@
-import { createSlice, PayloadAction } from "@reduxjs/toolkit";
+import { createSlice } from "@reduxjs/toolkit";
+import { profile } from "../../API/profileAPI/models";
+import { profileThunks } from "./profileThunks";
 
-interface initialStateType {}
+interface initialStateType {
+  profile: profile | null;
+}
 
-const initialState: initialStateType = {};
+const initialState: initialStateType = {
+  profile: null,
+};
 
 const profileReducer = createSlice({
   name: "profile",
@@ -10,6 +16,11 @@ const profileReducer = createSlice({
 
   reducers: {
     action(state) {},
+  },
+  extraReducers(builder) {
+    builder.addCase(profileThunks.getProfile.fulfilled, (state, action) => {
+      state.profile = action.payload;
+    });
   },
 });
 
