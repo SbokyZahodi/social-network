@@ -1,16 +1,16 @@
 import { FC } from "react";
 import { profile } from "../../../API/profileAPI/models";
-import profilePhoto from "../../../assets/defaultUserPhoto.png";
 import AboutMe from "./AboutMe";
 import Contacts from "./Contacts";
 import Followed from "./Followed";
 import Posts from "./Posts";
+import profilePhoto from "../../../assets/defaultUserPhoto.png";
 
 type profileProps = {
   profile: profile;
 };
 
-const Profile: FC<profileProps> = ({ profile }) => {
+const MyProfile: FC<profileProps> = ({ profile }) => {
   const {
     contacts,
     fullName,
@@ -18,10 +18,11 @@ const Profile: FC<profileProps> = ({ profile }) => {
     lookingForAJobDescription,
     photos,
     userId,
+    aboutMe,
   } = profile;
 
   return (
-    <div className={`lg:flex`}>
+    <div className={`lg:flex w-full h-full`}>
       <div className={`lg:w-[500px]`}>
         <img
           src={photos.large ? photos.large : profilePhoto}
@@ -34,11 +35,10 @@ const Profile: FC<profileProps> = ({ profile }) => {
         >
           {fullName}
         </div>
-        <div className={`m-5`}>Follow</div>
 
         <Followed />
       </div>
-      <div className={`lg:p-4 p-1`}>
+      <div className={`p-1 lg:p-4 w-full h-full`}>
         <div
           className={`lg:flex p-4  rounded-md`}
           style={{ background: "rgba(217, 217, 217, 0.03)" }}
@@ -51,4 +51,4 @@ const Profile: FC<profileProps> = ({ profile }) => {
     </div>
   );
 };
-export default Profile;
+export default MyProfile;

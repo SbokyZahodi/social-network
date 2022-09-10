@@ -19,3 +19,9 @@ export type profile = {
     large: string | undefined;
   };
 };
+
+export type status = {
+  resultCode: number;
+  messages: string[];
+  data: {};
+};

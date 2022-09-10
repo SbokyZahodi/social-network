@@ -9,6 +9,7 @@ import Sidebar from "./components/sidebar";
 import UsersContainer from "./components/UsersPage/UsersContainer/UsersContainer";
 import { authThunks } from "./redux/authReducer/authThunks";
 import { useAppDispatch, useAppSelector } from "./redux/hooks";
+import TestContainer from "./TestContainet";
 
 const App = () => {
   type routesType = {
@@ -23,6 +24,7 @@ const App = () => {
     { path: "/messages", component: <MessagesContainer /> },
     { path: "/users", component: <UsersContainer /> },
     { path: "/login", component: <LoginContainer /> },
+    { path: "/test", component: <TestContainer /> },
   ];
 
   useEffect(() => {
@@ -42,7 +44,7 @@ const App = () => {
       <div className={`lg:w-[5%]`}>
         <Sidebar />
       </div>
-      <div className={`lg:w-[95%]`}>
+      <div className={`lg:w-[95%] mb-[20%] lg:mb-0 `}>
         <Routes>
           {routes.map(({ path, component }) => (
             <Route path={path} element={component} key={path} />

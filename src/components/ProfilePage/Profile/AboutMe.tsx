@@ -1,13 +1,13 @@
-const AboutMe = () => {
+import { FC } from "react";
+import { useAppSelector } from "../../../redux/hooks";
+
+const AboutMe: FC = () => {
+  let status = useAppSelector((state) => state.profile.status);
+
   return (
     <div className={`lg:border-r-2 m-2 lg:w-1/2 `}>
       <div className={`text-2xl`}>About me</div>
-      <div className={`w-full`}>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores ipsam
-        officia laboriosam, natus alias vero iste at veniam, maxime minus
-        blanditiis et eveniet numquam ipsum animi inventore, ipsa temporibus
-        aperiam!
-      </div>
+      <div className={`w-full`}>{status}</div>
     </div>
   );
 };
