@@ -25,3 +25,14 @@ export type status = {
   messages: string[];
   data: {};
 };
+
+export type setPhotoResponse = {
+  resultCode: number;
+  messages: string[]
+  data: {
+    photos: {
+      small: string,
+      large: string
+    }
+  };
+};

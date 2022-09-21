@@ -40,17 +40,18 @@ const App = () => {
   }
 
   return (
-    <div className={`lg:flex`}>
+    <div className={`lg:flex `}>
       <div className={`lg:w-[5%]`}>
         <Sidebar />
       </div>
-      <div className={`lg:w-[95%] mb-[20%] lg:mb-0 `}>
+      <div className={`lg:w-[95%] mb-[40%] lg:mb-0 lg:h-full `}>
         <Routes>
           {routes.map(({ path, component }) => (
             <Route path={path} element={component} key={path} />
           ))}
         </Routes>
       </div>
+      
     </div>
   );
 };

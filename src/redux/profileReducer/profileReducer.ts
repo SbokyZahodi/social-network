@@ -1,4 +1,4 @@
-import { createSlice, nanoid, PayloadAction } from "@reduxjs/toolkit";
+import { createSlice, current, nanoid, PayloadAction } from "@reduxjs/toolkit";
 import { profile } from "../../API/profileAPI/models";
 import { profileThunks } from "./profileThunks";
 
@@ -9,12 +9,20 @@ interface initialStateType {
     id: string;
     content: string;
   }[];
+  isMyProfile: boolean;
+  profilePending: boolean;
+  isUserFollower: boolean;
+  isFollowUnfollowPending: boolean;
 }
 
 const initialState: initialStateType = {
   status: null,
   profile: null,
   posts: [],
+  isMyProfile: false,
+  profilePending: false,
+  isUserFollower: false,
+  isFollowUnfollowPending: false,
 };
 
 const profileReducer = createSlice({
@@ -27,6 +35,9 @@ const profileReducer = createSlice({
         id: nanoid(),
         content: action.payload.content,
       });
+    },
+    switchIsMyProfile(state, action: PayloadAction<boolean>) {
+      state.isMyProfile = action.payload;
     },
     editPost(
       state,
@@ -43,18 +54,68 @@ const profileReducer = createSlice({
       state.posts = array;
     },
     setStatus(state, action: PayloadAction<string>) {
-      state.status = action.payload
-    }
+      state.status = action.payload;
+    },
   },
   extraReducers(builder) {
     builder.addCase(profileThunks.getProfile.fulfilled, (state, action) => {
       state.profile = action.payload;
+      state.profilePending = false;
     });
+    builder.addCase(profileThunks.getProfile.pending, (state, action) => {
+      state.profilePending = true;
+    });
+
     builder.addCase(profileThunks.getStatus.fulfilled, (state, action) => {
       state.status = action.payload;
+    });
+    builder.addCase(profileThunks.setContact.fulfilled, (state, action) => {
+      console.log(action.payload);
+      console.log(current(state));
+    });
+    builder.addCase(profileThunks.setPhoto.fulfilled, (state, action) => {
+      if (state.profile) {
+        if (action.payload.resultCode === 0) {
+          state.profile.photos.large = action.payload.data.photos.large;
+        } else {
+          console.log("error");
+        }
+      }
+    });
+    builder.addCase(
+      profileThunks.checkIsUserFollower.fulfilled,
+      (state, action) => {
+        action.payload
+          ? (state.isUserFollower = true)
+          : (state.isUserFollower = false);
+      }
+    );
+    builder.addCase(profileThunks.followUser.fulfilled, (state, action) => {
+      if (action.payload.resultCode === 0) {
+        state.isUserFollower = true;
+        state.isFollowUnfollowPending = false;
+      }
+    });
+    builder.addCase(profileThunks.followUser.pending, (state, action) => {
+      state.isFollowUnfollowPending = true;
+    });
+    builder.addCase(profileThunks.unfollowUser.fulfilled, (state, action) => {
+      if (action.payload.resultCode === 0) {
+        state.isUserFollower = false;
+        state.isFollowUnfollowPending = false;
+      }
+    });
+    builder.addCase(profileThunks.unfollowUser.pending, (state, action) => {
+      state.isFollowUnfollowPending = true;
     });
   },
 });
 
 export default profileReducer.reducer;
-export const { createPost, deletePost, editPost, setStatus } = profileReducer.actions;
+export const {
+  createPost,
+  deletePost,
+  editPost,
+  setStatus,
+  switchIsMyProfile,
+} = profileReducer.actions;

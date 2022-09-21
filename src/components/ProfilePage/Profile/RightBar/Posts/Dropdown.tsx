@@ -1,28 +1,20 @@
 import { Menu, Transition } from "@headlessui/react";
 import { FC } from "react";
-import { useAppDispatch } from "../../../redux/hooks";
-import { deletePost } from "../../../redux/profileReducer/profileReducer";
 
-const Dropdown: FC<{ id: string; setEditMode: any }> = ({
-  id,
+const Dropdown: FC<{ setEditMode: any; removePost: any }> = ({
   setEditMode,
+  removePost,
 }) => {
-  let dispatch = useAppDispatch();
-  const removePost = () => {
-    dispatch(deletePost({ id: id }));
-  };
-
   return (
-    <Menu as="div" className="relative ">
-      <Menu.Button as="div">
+    <Menu as="div">
+      <Menu.Button>
         <svg
           xmlns="http://www.w3.org/2000/svg"
           fill="none"
           viewBox="0 0 24 24"
           strokeWidth={1.5}
           stroke="currentColor"
-          className="w-8 h-8 mt-2 rounded-full cursor-pointer relative"
-          style={{ background: "rgba(217, 217, 217, 0.06)" }}
+          className="w-8 h-8 relative"
         >
           <path
             strokeLinecap="round"
@@ -32,19 +24,20 @@ const Dropdown: FC<{ id: string; setEditMode: any }> = ({
         </svg>
       </Menu.Button>
       <Transition
-        enter="transition duration-100"
+        enter="transition duration-100 ease-out"
         enterFrom="transform scale-95 opacity-0"
         enterTo="transform scale-100 opacity-100"
-        leave="transition duration-75"
+        leave="transition duration-75 ease-out"
         leaveFrom="transform scale-100 opacity-100"
         leaveTo="transform scale-95 opacity-0"
       >
         <Menu.Items
-          className={"absolute right-6 rounded-md p-2 bg-[#2A2D36] w-[150px]"}
+          as="div"
+          className={"absolute bg-zinc-600 right-3 rounded-md text-center"}
         >
           <Menu.Item>
             <div
-              className={`flex items-center p-1 hover:bg-slate-600 rounded-md cursor-pointer`}
+              className={`hover:bg-zinc-500 p-1 px-2 rounded-md m-2 cursor-pointer flex items-center`}
               onClick={() => setEditMode(true)}
             >
               <svg
@@ -53,7 +46,7 @@ const Dropdown: FC<{ id: string; setEditMode: any }> = ({
                 viewBox="0 0 24 24"
                 strokeWidth={1.5}
                 stroke="currentColor"
-                className="w-6 h-6 mx-2"
+                className="w-6 h-6 mx-1"
               >
                 <path
                   strokeLinecap="round"
@@ -61,12 +54,12 @@ const Dropdown: FC<{ id: string; setEditMode: any }> = ({
                   d="M16.862 4.487l1.687-1.688a1.875 1.875 0 112.652 2.652L6.832 19.82a4.5 4.5 0 01-1.897 1.13l-2.685.8.8-2.685a4.5 4.5 0 011.13-1.897L16.863 4.487zm0 0L19.5 7.125"
                 />
               </svg>
-              <div className={``}>Edit</div>
+              <span>Edit</span>
             </div>
           </Menu.Item>
           <Menu.Item>
             <div
-              className={`flex items-center p-1 hover:bg-slate-600 rounded-md cursor-pointer`}
+              className={`hover:bg-zinc-500 p-1 px-2 rounded-md m-2 cursor-pointer flex items-center`}
               onClick={() => removePost()}
             >
               <svg
@@ -75,7 +68,7 @@ const Dropdown: FC<{ id: string; setEditMode: any }> = ({
                 viewBox="0 0 24 24"
                 strokeWidth={1.5}
                 stroke="currentColor"
-                className="w-6 h-6 mx-2"
+                className="w-6 h-6 mx-1"
               >
                 <path
                   strokeLinecap="round"
@@ -84,7 +77,7 @@ const Dropdown: FC<{ id: string; setEditMode: any }> = ({
                 />
               </svg>
 
-              <div className={``}>Remove</div>
+              <span>Remove</span>
             </div>
           </Menu.Item>
         </Menu.Items>
@@ -92,5 +85,4 @@ const Dropdown: FC<{ id: string; setEditMode: any }> = ({
     </Menu>
   );
 };
-
 export default Dropdown;

@@ -2,131 +2,18 @@ import { FC, useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { authThunks } from "../../redux/authReducer/authThunks";
 import { useAppDispatch } from "../../redux/hooks";
+import LeftBar from "./LeftBar/LeftBar";
+import RightBar from "./RightBar/RightBar";
 
-const IsPassShowed: FC<{ see: boolean; setSeePassword: any }> = ({
-  see,
-  setSeePassword,
-}) => {
-  if (!see) {
-    return (
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        fill="none"
-        viewBox="0 0 24 24"
-        strokeWidth={0.5}
-        stroke="currentColor"
-        className="w-9 h-9 mt-4 ml-2 cursor-pointer"
-        onClick={() => setSeePassword(true)}
-      >
-        <path
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          d="M3.98 8.223A10.477 10.477 0 001.934 12C3.226 16.338 7.244 19.5 12 19.5c.993 0 1.953-.138 2.863-.395M6.228 6.228A10.45 10.45 0 0112 4.5c4.756 0 8.773 3.162 10.065 7.498a10.523 10.523 0 01-4.293 5.774M6.228 6.228L3 3m3.228 3.228l3.65 3.65m7.894 7.894L21 21m-3.228-3.228l-3.65-3.65m0 0a3 3 0 10-4.243-4.243m4.242 4.242L9.88 9.88"
-        />
-      </svg>
-    );
-  }
-
+const LoginForm: FC = () => {
   return (
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      fill="none"
-      viewBox="0 0 24 24"
-      strokeWidth={0.5}
-      stroke="currentColor"
-      className="w-9 h-9 mt-4 ml-2 cursor-pointer"
-      onClick={() => setSeePassword(false)}
-    >
-      <path
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        d="M2.036 12.322a1.012 1.012 0 010-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178z"
-      />
-      <path
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"
-      />
-    </svg>
-  );
-};
-
-const LoginForm: FC<{ pendingAuth: boolean }> = ({ pendingAuth }) => {
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-  } = useForm();
-
-  const [Data, setData] = useState<string>();
-  const [SeePassword, setSeePassword] = useState(false);
-  let dispatch = useAppDispatch();
-
-  useEffect(() => {
-    if (Data) {
-      const { email, password, rememberMe } = JSON.parse(Data);
-      dispatch(
-        authThunks.login({
-          email: email,
-          password: password,
-          rememberMe: rememberMe,
-        })
-      );
-    }
-  }, [Data]);
-
-  return (
-    <div className={`w-full h-full flex justify-center items-center`}>
+    <div className={`w-full h-full flex justify-center lg:items-center`}>
       <div
-        className={`top-0 w-[800px] h-[500px] flex`}
+        className={`top-0 w-[800px] lg:h-[500px] lg:flex`}
         style={{ background: "rgba(217, 217, 217, 0.04)" }}
       >
-        <div className={`w-1/2 bg-gradient-to-b  from-red-400 to-blue-500`}>
-          ad
-        </div>
-        <div className={`w-1/2 p-4`}>
-          <form
-            onSubmit={handleSubmit((data) => setData(JSON.stringify(data)))}
-          >
-            <div className={`text-xl w-full`}>
-              <div className={`mt-10 text-slate-200 text-2xl`}>Email</div>
-              <input
-                {...register("email", { required: true })}
-                type="email"
-                className="h-11 text-black mt-4 w-3/4 p-1"
-                placeholder="Email"
-              />
-            </div>
-            <div className={`text-xl w-full`}>
-              <div className={`mt-10 text-slate-200 text-2xl`}>Password</div>
-              <div className={`flex items-center`}>
-                <input
-                  {...register("password")}
-                  type={SeePassword ? "text" : "password"}
-                  className="h-11 text-black mt-4 w-3/4 p-1"
-                  placeholder="Password"
-                />
-                <IsPassShowed see={SeePassword} setSeePassword={setSeePassword} />
-              </div>
-            </div>
-            <div className={`flex items-center`}>
-              <div className={`mt-4 text-slate-200 text-2xl`}>Remember Me</div>
-              <input
-                {...register("rememberMe")}
-                type="checkbox"
-                className="mt-4 ml-4 w-14"
-              />
-            </div>
-            <div className={`flex justify-center mt-16`}>
-              <input
-                disabled={pendingAuth ? true : false}
-                value="Sign in"
-                type="submit"
-                className="bg-[#245FD2] p-3 px-10 rounded-md text-xl shadow-xl cursor-pointer hover:bg-[#296aeb] transition"
-              />
-            </div>
-          </form>
-        </div>
+        <LeftBar />
+        <RightBar />
       </div>
     </div>
   );

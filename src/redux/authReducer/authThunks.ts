@@ -12,4 +12,7 @@ export const authThunks = {
   authMe: createAsyncThunk("auth/authMe", async () => {
     return authAPI.authMe();
   }),
+  logout: createAsyncThunk("auth/logout", async () => {
+    return authAPI.logout();
+  }),
 };

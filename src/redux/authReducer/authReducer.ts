@@ -1,4 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
+import { authAPI } from "../../API/authAPI/authAPI";
 import { authThunks } from "./authThunks";
 
 interface initialStateType {
@@ -22,16 +23,14 @@ const authReducer = createSlice({
   reducers: {},
   extraReducers(builder) {
     builder.addCase(authThunks.login.fulfilled, (state, action) => {
-      console.log(action.payload.resultCode);
+      state.pending = false;
       if (action.payload.resultCode === 0) {
         state.isAuth = true;
         state.errors = null;
         state.myID = action.payload.data.userId;
-        console.log(action.payload);
       } else {
         state.errors = [];
-        action.payload.messages.forEach((item) => state.errors?.push(item));
-        console.log(action.payload);
+        state.errors = action.payload.messages;
       }
     });
     builder.addCase(authThunks.login.pending, (state) => {
@@ -45,6 +44,10 @@ const authReducer = createSlice({
         state.isAuth = false;
         state.myID = null;
       }
+    });
+    builder.addCase(authThunks.logout.fulfilled, (state, action) => {
+      state.isAuth = false;
+      state.myID = null;
     });
   },
 });

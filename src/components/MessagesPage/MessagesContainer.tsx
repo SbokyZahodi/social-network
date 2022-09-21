@@ -1,5 +1,6 @@
+import Dialogs from "./Dialogs";
 
 const MessagesContainer = () => {
-  return <div className={``}></div>;
+  return <Dialogs />;
 };
 export default MessagesContainer;

@@ -1,6 +1,5 @@
 import { FC } from "react";
-import { Navigate, NavLink } from "react-router-dom";
-import defaultUserPhoto from '../../assets/defaultUserPhoto.png'
+import { NavLink } from "react-router-dom";
 type user = {
   id: number;
   name: string;
@@ -18,7 +17,7 @@ const User: FC<user> = ({ id, name, status, avatar, followed }) => {
         <div className={`flex`}>
           <NavLink to={`/profile/${id}`}>
             <img
-              src={avatar ? avatar : defaultUserPhoto}
+              src={avatar ? avatar : "/img/defaultUserPhoto.png"}
               alt=""
               className="w-24 h-24 rounded-full"
             />
