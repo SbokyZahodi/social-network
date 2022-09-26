@@ -1,5 +1,5 @@
 import { FC } from "react";
-import preloader from "../../assets/preloader.gif";
+import preloader from '../../../public/img/preloader.gif'
 
 type props = {
   width?: number;
