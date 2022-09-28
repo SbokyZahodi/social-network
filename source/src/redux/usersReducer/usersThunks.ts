@@ -17,4 +17,7 @@ export const usersThunks = {
   getFriends: createAsyncThunk("users/getFriends", async () => {
     return await usersAPI.getFriends();
   }),
+  getTotalUsersCount: createAsyncThunk("users/getTotalUsersCount", async () => {
+    return await usersAPI.getUsersByPage();
+  }),
 };

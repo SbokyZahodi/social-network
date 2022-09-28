@@ -1,7 +1,7 @@
 const LeftBar = () => {
   return (
     <div
-      className={`lg:w-1/2 bg-gradient-to-b  from-red-400 to-blue-500 h-[250px] lg:h-auto lg:pt-[15%] pt-[50px]`}
+      className={`lg:w-1/2 bg-gradient-to-b  from-red-400 to-blue-500 h-[350px] lg:h-auto lg:pt-[15%] pt-[50px]`}
     >
       <div
         className={`text-4xl text-center `}
@@ -34,6 +34,11 @@ const LeftBar = () => {
           >
             https://github.com/SbokyZahodi
           </a>
+          <div className={``}>
+            Test Data
+            <div className={``}>Email: libival445@dnitem.com </div>
+            <div className={``}>Password: helloworld</div>
+          </div>
         </div>
       </div>
     </div>

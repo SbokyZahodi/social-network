@@ -15,6 +15,7 @@ const AllUsersContainer: FC = () => {
     if (users.length === 0) {
       dispatch(usersThunks.getUsersByPage(page));
     }
+    dispatch(usersThunks.getTotalUsersCount())
   }, []);
 
   const loadMoreUsers = () => {

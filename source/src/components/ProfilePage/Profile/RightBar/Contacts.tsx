@@ -64,7 +64,7 @@ const Contacts = () => {
         />
         {EditMode && (
           <button
-            className={`absolute right-2 bottom-2 bg-green-300 p-1 px-4 rounded-md`}
+            className={`absolute right-2 bottom-2 bg-zinc-500 text-green-400 p-1 px-7 rounded-md `}
             onClick={() => saveContacts()}
           >
             Save{" "}

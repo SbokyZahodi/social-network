@@ -38,7 +38,12 @@ const Friends = () => {
 
   let friendsArray = friends.map((item) => {
     return (
-      <FriendIcon id={item.id} name={item.name} photo={item.photos.large} key={item.id} />
+      <FriendIcon
+        id={item.id}
+        name={item.name}
+        photo={item.photos.large}
+        key={item.id}
+      />
     );
   });
 

@@ -62,6 +62,12 @@ const usersReducer = createSlice({
       state.error = action.payload.error;
       state.page = state.page + 1;
     });
+    builder.addCase(
+      usersThunks.getTotalUsersCount.fulfilled,
+      (state, action) => {
+        state.totalCount = action.payload.totalCount;
+      }
+    );
     builder.addCase(usersThunks.getFriends.fulfilled, (state, action) => {
       state.friends = action.payload.items;
       state.totalCount = action.payload.totalCount;

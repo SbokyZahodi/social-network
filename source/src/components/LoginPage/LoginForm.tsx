@@ -9,8 +9,7 @@ const LoginForm: FC = () => {
   return (
     <div className={`w-full h-full flex justify-center lg:items-center`}>
       <div
-        className={`top-0 w-[800px] lg:h-[500px] lg:flex`}
-        style={{ background: "rgba(217, 217, 217, 0.04)" }}
+        className={`top-0 w-[800px] lg:h-[500px] lg:flex lg:bg-[#23252c]`}
       >
         <LeftBar />
         <RightBar />

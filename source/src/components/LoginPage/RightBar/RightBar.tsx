@@ -33,7 +33,7 @@ const RightBar = () => {
   } = useForm();
 
   return (
-    <div className={`lg:w-1/2 p-4 h-[400px]`}>
+    <div className={`lg:w-1/2 p-4 h-full`}>
       <form onSubmit={handleSubmit((data) => login(data))}>
         <div className={`text-xl w-full`}>
           <div className={`mt-10 text-slate-200 text-2xl`}>Email</div>

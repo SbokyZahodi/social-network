@@ -19,7 +19,7 @@ const User: FC<user> = ({ id, name, status, avatar, followed }) => {
             <img
               src={avatar ? avatar : "/img/defaultUserPhoto.png"}
               alt=""
-              className="w-16 h-16 rounded-full"
+              className={` rounded-full w-24 h-24`}
             />
           </NavLink>
           <div className={`m-2 `}>
