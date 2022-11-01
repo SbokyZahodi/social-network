@@ -1,10 +1,13 @@
+import defaultUserPhoto from '../../../assets/img/defaultUserPhoto.png'
+
+
 const Comment = () => {
   return (
     <div className={` p-2 m-2 border-b `}>
       <div className={`flex justify-between`}>
         <div className={`flex`}>
           <img
-            src="/img/defaultUserPhoto.png"
+            src={defaultUserPhoto}
             alt=""
             className="w-12 h-12 rounded-full mx-2"
           />
