@@ -1,0 +1,20 @@
+{
+  "files": {
+    "main.css": "/sbokyzahodi.github.io/static/css/main.060ca6c4.css",
+    "main.js": "/sbokyzahodi.github.io/static/js/main.c3dc7a90.js",
+    "static/js/787.6fd53891.chunk.js": "/sbokyzahodi.github.io/static/js/787.6fd53891.chunk.js",
+    "static/media/avatar2.png": "/sbokyzahodi.github.io/static/media/avatar2.c0fff78555b402e27d28.png",
+    "static/media/avatar4.jpg": "/sbokyzahodi.github.io/static/media/avatar4.70b911c829e6f4ed9931.jpg",
+    "static/media/avatar3.jpg": "/sbokyzahodi.github.io/static/media/avatar3.cd16dac5fe25b9bd53a4.jpg",
+    "static/media/avatar1.jpg": "/sbokyzahodi.github.io/static/media/avatar1.af9dc51b1f5794338a60.jpg",
+    "static/media/defaultUserPhoto.png": "/sbokyzahodi.github.io/static/media/defaultUserPhoto.2c9f1d49585ccd8e0c2f.png",
+    "index.html": "/sbokyzahodi.github.io/index.html",
+    "main.060ca6c4.css.map": "/sbokyzahodi.github.io/static/css/main.060ca6c4.css.map",
+    "main.c3dc7a90.js.map": "/sbokyzahodi.github.io/static/js/main.c3dc7a90.js.map",
+    "787.6fd53891.chunk.js.map": "/sbokyzahodi.github.io/static/js/787.6fd53891.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.060ca6c4.css",
+    "static/js/main.c3dc7a90.js"
+  ]
+}
