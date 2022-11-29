@@ -2,7 +2,6 @@ import { useEffect, useState } from "react";
 import { useAppDispatch, useAppSelector } from "../../../../../redux/hooks";
 import { createPost } from "../../../../../redux/profileReducer/profileReducer";
 import Editor from "./Editor";
-import defaultUserPhoto from "../../../../../assets/img/defaultUserPhoto.png";
 
 const AddPost = () => {
   const [Content, setContent] = useState("");
@@ -17,7 +16,7 @@ const AddPost = () => {
   return (
     <div className={`lg:w-[500px]`}>
       <img
-        src={avatar ? avatar : defaultUserPhoto}
+        src={avatar ? avatar : '/img/defaultUserPhoto.png'}
         alt=""
         className="w-[46px] rounded-full"
       />

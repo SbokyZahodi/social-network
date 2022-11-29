@@ -5,7 +5,6 @@ import {
   editPost,
 } from "../../../../../redux/profileReducer/profileReducer";
 import Dropdown from "./Dropdown";
-import defaultUserPhoto from '../../../../../assets/img/defaultUserPhoto.png'
 
 const ContentBlock: FC<{ content: string }> = ({ content }) => {
   return (
@@ -41,7 +40,7 @@ const Post: FC<{ content: string; id: string }> = ({ content, id }) => {
   return (
     <div className={`flex mt-5`}>
       <img
-        src={avatar ? avatar : defaultUserPhoto}
+        src={avatar ? avatar : "/img/defaultUserPhoto.png"}
         alt=""
         className="w-[46px] h-[46px] rounded-full"
       />

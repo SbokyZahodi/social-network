@@ -1,7 +1,6 @@
 import { useAppSelector } from "../../../redux/hooks";
 import AddComment from "./AddComment";
 import Comment from "./Comment";
-import defaultUserPhoto from '../../../assets/img/defaultUserPhoto.png'
 
 const Comments = () => {
   return (
@@ -15,7 +14,7 @@ const Comments = () => {
           <div className={`flex justify-between`}>
             <div className={`flex p-4`}>
               <img
-                src={defaultUserPhoto}
+                src="/img/defaultUserPhoto.png"
                 alt=""
                 className="w-16 h-16 rounded-full"
               />

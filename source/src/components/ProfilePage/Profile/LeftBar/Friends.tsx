@@ -2,7 +2,6 @@ import { faker } from "@faker-js/faker";
 import { FC } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
 import { useAppSelector } from "../../../../redux/hooks";
-import defaultUserPhoto from '../../../../assets/img/defaultUserPhoto.png'
 
 type props = {
   id: number;
@@ -14,7 +13,7 @@ const FriendIcon: FC<props> = ({ id, name, photo }) => {
   return (
     <NavLink to={"/profile/" + id}>
       <img
-        src={photo ? photo : defaultUserPhoto}
+        src={photo ? photo : "/img/defaultUserPhoto.png"}
         alt=""
         className="w-12 h-12 bg-slate-500 rounded-full"
       />
